@@ -6,6 +6,7 @@ while (tarifa != "ESC") {
   switch (tarifa) {
     case "matutina":
       tarifaMatutina();
+      reserva();
       break;
     case "after":
       tarifaAfter();
@@ -17,22 +18,57 @@ while (tarifa != "ESC") {
   tarifa = prompt ("Si desea realizar otra reserva escriba el turno: matutina, after, hora o ESC para salir");
 } 
 
+
 function tarifaMatutina(){
-  let checkIn = "08:00";
-  let checkOut = "12:00";
-  let costo = "$2500";
-  let mensaje = `El horario para la tarifa Matutina es ${checkIn} a ${checkOut} y su costo es ${costo}`;
-  alert(mensaje);
+
+class Matutina {
+  constructor (checkin, checkout, costo){
+    this.checkin = checkin,
+    this.checkout = checkout,
+    this.costo = costo
+  }
+}
+
+const matutina = new Matutina ("08:00", "12:00", "$2500");
+let mensaje = `El horario para la tarifa Matutina es ${matutina.checkin} a ${matutina.checkout} y su costo es ${matutina.costo}`;
+alert(mensaje);
+
+}
+
+function reserva(){
+
   let reserva = prompt ("Desea reservar? Escriba si o no");
   if (reserva === "si"){
     let nombre = prompt ("Ingrese su nombre y apellido");
     let contacto = prompt ("Ingrese telefono celular o de contacto");
-    let email = prompt ("Ingrese fecha de reserva");
+    let fecha = prompt ("Ingrese fecha de reserva");
+    let email = prompt ("Ingrese su email");
     let tarjeta = prompt ("Ingrese su tarjeta de credito");
-    let reservaRealizada = `Ha quedado efectiva la reserva a nombre de ${nombre}`;
+  
+    class Persona {
+      constructor (nombre, contacto, fecha, email, tarjeta){
+        this.nombre = nombre,
+        this.contacto = contacto,
+        this.fecha = fecha,
+        this.email = email,
+        this.tarjeta = tarjeta
+      }  
+    }
+    const persona1 = new Persona (nombre, contacto, fecha, email, tarjeta);
+    let reservaRealizada = `Ha quedado efectiva la reserva a nombre de:\n ${persona1.nombre}\n ${persona1.contacto}\n ${persona1.email}\n ${persona1.fecha}\n`;
     alert (reservaRealizada);
-  };
-}; 
+    console.log(persona1);
+    return persona1;
+    
+  }
+}
+
+//Se agrega la persona que gestiono la reserva a un array.
+
+const reservas = [];
+reservas.push(reserva.persona1);
+console.log(reservas);
+
 
 function tarifaAfter(){
   let checkIn = "19:00";
