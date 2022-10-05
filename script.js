@@ -1,5 +1,8 @@
 // SIMULADOR DE RESERVAS
 
+//ELECCION DEL MENU DESPLEGABLE, EL TIPO DE TARIFA, DEPENDIENDO DE LA MISMA
+//SE DEBERA COLOCAR EL VALOR EN EL CAMPO VALOR DEL FORMULARIO DE RESERVA
+
 let matutina = document.getElementById("matutina");
 matutina.addEventListener("click",tarifaMatutina);
 
@@ -8,6 +11,9 @@ after.addEventListener("click",tarifaAfter);
 
 let hora = document.getElementById("hora");
 hora.addEventListener("click",tarifaHora);
+
+//DEPENDIENDO DE LA OPCION SELECCIONADA EN EL MENU DESPLEGABLE, ESTAS FUNCIONES 
+//MUESTRAN A TRAVES DE DOM, LAS CARACTERICTICAS DE DICHA TARIFA
 
 function tarifaMatutina(){
   contenedor.innerHTML = ""
@@ -34,33 +40,46 @@ function tarifaHora(){
   }
 
 
+  let inputs = [];
+  
   let formulario = document.getElementById("formulario");
   console.log(formulario)
   formulario.addEventListener("submit",(e) => {
     e.preventDefault();
-    let inputs = e.target.children;
+    valores = e.target.children;
 
-    console.log(inputs[1].value);
-    console.log(inputs[3].value); 
-    console.log(inputs[5].value);
+    inputs.push(valores[1].value);
+    inputs.push(valores[3].value); 
+    inputs.push(valores[5].value);
 
   } 
   )
 
+  let personas = [];
+
   class Persona {
     constructor (nombre, contacto, email){
-      this.inputs[1].value = nombre,
-      this.inputs[3].value = contacto,
-      this.inputs[5].value = email
+      this.inputs[0].value = nombre,
+      this.inputs[1].value = contacto,
+      this.inputs[2].value = email
     }  
   }
+//console.log(inputs);
+  let nombre = inputs[0].value;
+  let contacto = inputs[1].value;
+  let email = inputs[2].value;
 
   const persona1 = new Persona (nombre, contacto, email);
-  let reservaRealizada = `Ha quedado efectiva la reserva a nombre de:\n ${persona1.nombre}\n ${persona1.contacto}\n ${persona1.email}\n`;
+  console.log(persona1, "Esta es la persona 1");
+  let reservaRealizada = `Ha quedado efectiva la reserva a nombre de:\n ${persona1.nombre}\n ${persona1.email}\n`;
   alert (reservaRealizada);
-  console.log(persona1);
+
+  personas.push(persona1);
+  console.log(personas);
+  console.log("Mostrar");
 
 //Se agrega la persona que gestiono la reserva a un array.
+
 
 const reservas = [];
 reservas.push(reserva.persona1);
