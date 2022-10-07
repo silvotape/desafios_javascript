@@ -21,6 +21,9 @@ function tarifaMatutina(){
   parrafo.innerHTML="<p>El horario para la tarifa Matutina es 08:00 a 12:00 y su costo es $2500</p>" 
   let matutinaResp = document.getElementById("contenedor");
   matutinaResp.append(parrafo); 
+  localStorage.setItem("tarifa", "matutina");
+  let mensaje = localStorage.getItem("tarifa");
+  console.log(mensaje);
   }
 
   function tarifaAfter(){
@@ -29,6 +32,9 @@ function tarifaMatutina(){
   parrafo.innerHTML="<p>El horario para la tarifa de After es 19:00 a 21:00 incluye 1 pizzeta y 2 tragos y su costo es 3500</p>" 
   let afterResp = document.getElementById("contenedor");
   afterResp.append(parrafo);  
+  localStorage.setItem("tarifa", "after");
+  let mensaje = localStorage.getItem("tarifa");
+  console.log(mensaje);
   }
 
 function tarifaHora(){
@@ -37,161 +43,71 @@ function tarifaHora(){
   parrafo.innerHTML="<p>El costo de la hora es de $740</p>" 
   let horaResp = document.getElementById("contenedor");
   horaResp.append(parrafo); 
+  localStorage.setItem("tarifa", "hora");
+  let mensaje = localStorage.getItem("tarifa");
+  console.log(mensaje);
   }
 
-
+// ME CREO UN ARRAY VACIO PARA GUARDAR LOS INPUTS DEL FORM,
   let inputs = [];
   
+  // TOMO LOS VALORES DE LOS INPUTS 1 3 Y 5 DEL FORMULARIO
   let formulario = document.getElementById("formulario");
   console.log(formulario)
   formulario.addEventListener("submit",(e) => {
     e.preventDefault();
     valores = e.target.children;
 
-    inputs.push(valores[1].value);
-    inputs.push(valores[3].value); 
-    inputs.push(valores[5].value);
+  // SE MUESTRA EL ARRAY INPUTS (FUNCIONA)
+    console.log(inputs);
 
+    Swal.fire({
+      title: 'Confirma los datos de la reserva?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('Su reserva quedo confirmada', '', 'success')
+    // SI SE CONFIRMA LA RESERVA MEDIANTE EL BOTON, ME GUARDO LOS VALORES DE LOS INPUTS EN EL ARRAY "INPUTS"
+        inputs.push(valores[1].value);
+        inputs.push(valores[3].value); 
+        inputs.push(valores[5].value);
+    // ME CREO EL OBJETO PERSONA MEDIANTE LA FUNCION "llamarPersona"
+        llamarPersona()
+      } else if (result.isDenied) {
+        Swal.fire('Su reserva ha sido cancelada', '', 'info')
+      }
+    })
   } 
   )
+ 
+console.log(inputs);
 
-  let personas = [];
+// CREO UN ARREGLO VACIO PARA IR GUARDANDO LAS PERSONAS QUE GENERAN RESERVAS
+let personas = [];
+
+function llamarPersona(){
+
+  let nombre = inputs[0];
+  let contacto = inputs[1];
+  let email = inputs[2];
 
   class Persona {
     constructor (nombre, contacto, email){
-      this.inputs[0].value = nombre,
-      this.inputs[1].value = contacto,
-      this.inputs[2].value = email
+      this.nombre = nombre,
+      this.contacto = contacto,
+      this.email = email
     }  
   }
-//console.log(inputs);
-  let nombre = inputs[0].value;
-  let contacto = inputs[1].value;
-  let email = inputs[2].value;
 
   const persona1 = new Persona (nombre, contacto, email);
-  console.log(persona1, "Esta es la persona 1");
-  let reservaRealizada = `Ha quedado efectiva la reserva a nombre de:\n ${persona1.nombre}\n ${persona1.email}\n`;
-  alert (reservaRealizada);
-
+ 
+//CARGO EN EL ARRAY LOS OBJETOS PERSONA EN EL ARRAY PERSONAS
   personas.push(persona1);
-  console.log(personas);
-  console.log("Mostrar");
 
-//Se agrega la persona que gestiono la reserva a un array.
-
-
-const reservas = [];
-reservas.push(reserva.persona1);
-console.log(reservas);
-
-
-
-/* const reservas = [];
-reservas.push(reserva.persona1);
-console.log(reservas); */
-/* let tarifa = prompt ("Que tarifa desea conocer? Escriba: matutina, after, hora o ESC para salir");
-
-while (tarifa != "ESC") {
-  switch (tarifa) {
-    case "matutina":
-      tarifaMatutina();
-      reserva();
-      break;
-    case "after":
-      tarifaAfter();
-      break;
-    default:
-      tarifaHora();
-      break;
-  }
-  tarifa = prompt ("Si desea realizar otra reserva escriba el turno: matutina, after, hora o ESC para salir");
-} 
-
-
-function tarifaMatutina(){
-
-class Matutina {
-  constructor (checkin, checkout, costo){
-    this.checkin = checkin,
-    this.checkout = checkout,
-    this.costo = costo
-  }
+  personas.forEach(element => console.log(element));
 }
 
-const matutina = new Matutina ("08:00", "12:00", "$2500");
-let mensaje = `El horario para la tarifa Matutina es ${matutina.checkin} a ${matutina.checkout} y su costo es ${matutina.costo}`;
-alert(mensaje);
-
-}
-
-function reserva(){
-
-  let reserva = prompt ("Desea reservar? Escriba si o no");
-  if (reserva === "si"){
-    let nombre = prompt ("Ingrese su nombre y apellido");
-    let contacto = prompt ("Ingrese telefono celular o de contacto");
-    let fecha = prompt ("Ingrese fecha de reserva");
-    let email = prompt ("Ingrese su email");
-    let tarjeta = prompt ("Ingrese su tarjeta de credito");
-  
-    class Persona {
-      constructor (nombre, contacto, fecha, email, tarjeta){
-        this.nombre = nombre,
-        this.contacto = contacto,
-        this.fecha = fecha,
-        this.email = email,
-        this.tarjeta = tarjeta
-      }  
-    }
-    const persona1 = new Persona (nombre, contacto, fecha, email, tarjeta);
-    let reservaRealizada = `Ha quedado efectiva la reserva a nombre de:\n ${persona1.nombre}\n ${persona1.contacto}\n ${persona1.email}\n ${persona1.fecha}\n`;
-    alert (reservaRealizada);
-    console.log(persona1);
-    return persona1;
-    
-  }
-}
-
-//Se agrega la persona que gestiono la reserva a un array.
-
-const reservas = [];
-reservas.push(reserva.persona1);
-console.log(reservas);
-
-
-function tarifaAfter(){
-  let checkIn = "19:00";
-  let checkOut = "21:00";
-  let comida = "1 pizzeta";
-  let bebida = "2 tragos";
-  let costo = "$3500";
-  let mensaje = `El horario para la tarifa de After es ${checkIn} a ${checkOut} incluye ${comida} y ${bebida} y su costo es ${costo}`;
-  alert(mensaje);
-  let reserva = prompt ("Desea reservar? Escriba si o no");
-  if (reserva === "si"){
-    let nombre = prompt ("Ingrese su nombre y apellido");
-    let contacto = prompt ("Ingrese telefono celular o de contacto");
-    let email = prompt ("Ingrese fecha de reserva");
-    let tarjeta = prompt ("Ingrese su tarjeta de credito");
-    let reservaRealizada = `Ha quedado efectiva la reserva a nombre de ${nombre}`;
-    alert (reservaRealizada);
-  };
-}; 
-
-function tarifaHora(){
-  let costo = "$1500";
-  let mensaje = `El costo de la hora es ${costo}`;
-  alert(mensaje);
-  let reserva = prompt ("Desea reservar? Escriba si o no");
-  if (reserva === "si"){
-    let nombre = prompt ("Ingrese su nombre y apellido");
-    let contacto = prompt ("Ingrese telefono celular o de contacto");
-    let email = prompt ("Ingrese fecha de reserva");
-    let tarjeta = prompt ("Ingrese su tarjeta de credito");
-    let reservaRealizada = `Ha quedado efectiva la reserva a nombre de ${nombre}`;
-    alert (reservaRealizada);
-  };
-}; 
-
- */
