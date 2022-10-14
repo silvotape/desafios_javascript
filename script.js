@@ -12,6 +12,8 @@ after.addEventListener("click",tarifaAfter);
 let hora = document.getElementById("hora");
 hora.addEventListener("click",tarifaHora);
 
+
+
 //DEPENDIENDO DE LA OPCION SELECCIONADA EN EL MENU DESPLEGABLE, ESTAS FUNCIONES 
 //MUESTRAN A TRAVES DE DOM, LAS CARACTERICTICAS DE DICHA TARIFA
 
@@ -21,9 +23,17 @@ function tarifaMatutina(){
   parrafo.innerHTML="<p>El horario para la tarifa Matutina es 08:00 a 12:00 y su costo es $2500</p>" 
   let matutinaResp = document.getElementById("contenedor");
   matutinaResp.append(parrafo); 
+
+  valor.innerHTML = ""
+  let total= document.createElement("input");
+  total.innerHTML="<input>$2500</input>" 
+  let valorResp = document.getElementById("valor");
+  valorResp.append(total); 
+
   localStorage.setItem("tarifa", "matutina");
   let mensaje = localStorage.getItem("tarifa");
   console.log(mensaje);
+
   }
 
   function tarifaAfter(){
