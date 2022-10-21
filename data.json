@@ -1,0 +1,7 @@
+[
+    {"Habitacion": 1, "Nombre": "Suprema", "Precio": 1500, "url":"./images/hab1.jpeg"},
+    {"Habitacion": 2, "Nombre": "Galactica", "Precio": 1800, "url":"./images/hab2.jpeg"},
+    {"Habitacion": 3, "Nombre": "Erotic", "Precio": 2000, "url":"./images/hab3.jpeg"},
+    {"Habitacion": 4, "Nombre": "Love", "Precio": 1200, "url":"./images/hab4.jpeg"}
+
+]

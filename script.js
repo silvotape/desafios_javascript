@@ -121,3 +121,26 @@ function llamarPersona(){
   personas.forEach(element => console.log(element));
 }
 
+
+
+fetch ("./data.json")
+.then (response => response.json() )
+.then (data => {
+  data.forEach (habitacion => {
+  const div = document.createElement("div");
+  div.innerHTML = `
+  <figure class="figure">
+  <img src="${habitacion.url}" class="figure-img img-fluid rounded" alt="Habitacion ${habitacion.Habitacion}">
+  <p>Habitacion ${habitacion.Habitacion}</p>
+  <figcaption class="figure-caption">${habitacion.Nombre}.</figcaption>
+</figure>
+
+  <p>$${habitacion.Precio}</p>
+  
+`;
+
+habitaciones.append(div);
+});
+
+})
+.catch (error => console.log (error));
