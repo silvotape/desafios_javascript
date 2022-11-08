@@ -1,3 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+/* font-family: 'Dancing Script', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+/* font-family: 'Cormorant Garamond', serif;*/
+
+
+
 .logo{
     width: 152px;
     height: 70px;
@@ -14,12 +22,15 @@ form {
 	border-radius:10px;
 	margin:auto;
 	background-color:whitesmoke;
+	
 }
 
 form label{
 	width:180px;
 	font-weight:bold;
 	display:inline-block;
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 20px;
 }
 
 form input[type="text"],
@@ -58,24 +69,107 @@ form input[type="submit"]{
 	display:block;
 	color:white;
 	background-color:black;
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 20px;
 } 
 
 form input[type="submit"]:hover{
 	cursor:pointer;
-    
 
+}
+
+button{
+	font-family: 'Cormorant Garamond', serif;
+}
+
+h1, h2 {
+	font-family: 'Dancing Script';
+}
+nav ul li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0px 40px;
+	margin-right: 40px;
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 25px;
+	
 }
 
 ul li {
     text-decoration: none;
 }
 
-img {
-    width: 400px;
-    heigh: 350px;
+a {
+	text-decoration: none;
+}
+
+.flex{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-wrap: nowrap;
+}
+.imagenes {
+    width: 100%;
+	height: 500px;
     object-fit: cover;
 }
 
+.promos{
+	width: 100%;
+	height: auto;
+    object-fit: cover;
+}
 section div div div{
     padding: 5px;
+}
+
+.tarifas{
+width: 100%;
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,121,139,1) 35%, rgba(110,115,35,1) 100%);
+border-radius: 7px;
+}
+
+.tarifas_font{
+	color: whitesmoke;
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 20px;
+}
+
+.footer_up{
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,121,139,1) 35%, rgba(110,115,35,1) 100%);
+color: #3b3b50;
+display:flex;
+align-items: center;
+justify-content: center;
+align-content: center;
+width: 100%;
+height: auto;
+}
+
+.direccion{
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,121,139,1) 35%, rgba(110,115,35,1) 100%);
+color: #3b3b50;
+display:flex;
+justify-content: center;
+width: 100%;
+height: auto;
+font-family: 'Cormorant Garamond', serif;
+font-size: 18px;
+}
+
+section form{
+	color: whitesmoke;
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,121,139,1) 35%, rgba(110,115,35,1) 100%);	
+}
+
+.seccion_form{
+	background-color: darkgrey;
+	margin:10px;
+	border-radius: 5px;
 }

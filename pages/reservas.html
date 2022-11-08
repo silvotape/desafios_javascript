@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS BOOTSTRAP -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- CSS SWITALERT2 -->
+        <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
+        <!-- CSS PERSONAL -->
+       <link rel="stylesheet" href="../style.css">
+        <title>Reservas</title>
+    
+       <!-- JQUERY PARA DATAPICKER --> 
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="/resources/demos/style.css"> 
+    
+      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+      <script>
+      $( function() {
+        $( "#datepicker" ).datepicker();
+      } );
+      </script>
+</head>
+
+<body>
+<header>
+    <div class="flex">
+            <!-- Logo de Contacto fb -->
+    <div class="footer_up">
+      <img src="../images/facebook.gif" style= "width: 70px" alt="Acceso Facebook">
+      <a href="https://www.facebook.com/motelnuevolido" target="_blank"> /MOTEL NUEVO LIDO</a>
+      </div>
+      <div class="direccion">
+      <p>Burgues 3162 / Ramón Márquez 3149 </p>
+    </div>
+   </div>
+    <!-- Logo de Contacto fb -->
+   
+       <!-- DIV PARA LA NAVBAR -->
+       <div>
+       <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+           <div class="container-fluid">
+             <a class="navbar-brand" href="../index.html">
+             <img class="logo" src="../images/logo1.png" alt=""></a>
+             <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav justify-content-md-around">
+                 <li class="nav-item">
+                   <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link active" href="#">Habitaciones</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link active" href="#">Reservas</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link active" href="#">Contacto</a>
+                 </li>
+               </ul>
+             </div>
+           </div>
+         </nav>
+         
+       </div>
+     </div>
+      
+</header>
+   
+       <div class="col-sm-2 d-flex flex-row justify-content-md-between m-3 promos" id="promociones">
+   
+       </div>
+  
+       <section>
+       <div class="d-flex flex-row justify-content-md-around m-5">
+           <div>
+           <h1>Seleccione el tipo de tarifa a reservar</h1>
+           <div class="dropdown">
+               <button id="tarifas" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                 Tarifas
+               </button>
+               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                 <li><a class="dropdown-item" id="matutina" href="#">Matutina</a></li>
+                 <li><a class="dropdown-item" id="after" href="#">After</a></li>
+                 <li><a class="dropdown-item" id="hora"href="#">Hora</a></li>
+               </ul>
+             </div>
+             <div id="contenedor"></div>
+           </div>
+           
+           <form id="formulario">
+            <label>Nombre y apellido</label>
+            
+            <input type="text" id="nombre" placeholder="Nombre del titular de tarjeta de crédito" required="" value="">
+            
+            <label>Numero de contacto</label>
+            
+            <input type="text" id="telefono" placeholder="Teléfono del titular de la tarjeta" required="" value="">
+           
+            <label>E-mail</label>
+            
+            <input type="email" id="email" placeholder="Email del titular de la tarjeta" required="" value="">
+           
+           <label>Fecha de reserva</label>
+            
+            <input type="text" id="datepicker" placeholder="dd/mm/aaaa" autocomplete="off" required="" value="" readonly="">
+            
+            <!-- <label id="total" class="">Total</label> -->
+            <div id="valor">
+
+            </div>
+            <!-- <input id="valor" type="text" placeholder="$xxxx"> -->
+        
+       
+          <input type="submit" value = "Reservar">
+       
+    </form>
+    </div>
+</section>
+
+     <!-- JS DE BOOTSTRAP -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <script src="../script.js"></script> 
+</body>
+</html>

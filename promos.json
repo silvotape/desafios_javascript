@@ -1,0 +1,8 @@
+[
+    {"Promoción": 1, "Nombre": "Escapate..!", "url":"./images/promo_escapada.jpeg"},
+    {"Promoción": 2, "Nombre": "Noche..", "url":"./images/promo_2.jpeg"},
+    {"Promoción": 3, "Nombre": "Dia..", "url":"./images/promo_3.jpeg"},
+    {"Promoción": 4, "Nombre": "Dia..", "url":"./images/promo_4.jpeg"},
+    {"Promoción": 5, "Nombre": "Dia..", "url":"./images/promo_5.jpeg"}
+
+]
